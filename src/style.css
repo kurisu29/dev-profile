@@ -308,6 +308,19 @@
 .service-card .service-action {
   margin-top: 0 !important;
 }
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.approach-grid div {
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .approach-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 .contact-socials {
   display: flex;
   flex-wrap: wrap;
@@ -904,13 +917,36 @@ a {
   border: 1px solid #404040;
   padding: 14px;
   border-radius: 9px;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-content: start;
+  gap: 8px 12px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.approach-grid div:hover {
+  transform: translateY(-5px);
+  border-color: #888;
+  box-shadow: 0 12px 26px #0008;
 }
 .approach-grid b {
   background: #eee;
   color: #111;
   padding: 7px 9px;
   border-radius: 5px;
-  margin-right: 12px;
+  grid-row: span 2;
+  margin-right: 0;
+}
+.approach-grid strong {
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  color: #f5f5f5;
+}
+.approach-grid span {
+  grid-column: 2;
+  color: #aaa;
+  font-size: 11px;
+  line-height: 1.55;
 }
 .stats {
   display: flex;
@@ -1115,5 +1151,11 @@ footer span {
     display: block;
     float: none;
     margin-top: 8px;
+  }
+}
+@media (min-width: 901px) {
+  .about .approach-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 16px;
   }
 }

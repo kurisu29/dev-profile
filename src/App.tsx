@@ -205,21 +205,30 @@ function App() {
           <h3>My Approach</h3>
           <div className="approach-grid">
             {[
-              "Understand users & goals",
-              "Build frontend and backend",
-              "Test responsive experiences",
-            ].map((item, index) => (
-              <div key={item}>
+              [
+                "Discover",
+                "Understand the goal, users, and key features before writing code.",
+              ],
+              [
+                "Build",
+                "Create the interface, Laravel logic, APIs, and database connections.",
+              ],
+              [
+                "Refine",
+                "Test the experience, fix issues, and polish the responsive details.",
+              ],
+              [
+                "Deliver",
+                "Share a dependable result with clear handoff and room to grow.",
+              ],
+            ].map(([title, text], index) => (
+              <div key={title}>
                 <b>0{index + 1}</b>
-                {item}
+                <strong>{title}</strong>
+                <span>{text}</span>
               </div>
             ))}
           </div>
-        </div>
-        <div className="stats">
-          <Stat value="02+" label="Years Of Experience" />
-          <Stat value="15+" label="Projects Completed" />
-          <Stat value="05+" label="Clients Served" />
         </div>
       </section>
       <section className="section shell" id="services">
@@ -418,14 +427,6 @@ function SectionHeading({
       <h2>{title}</h2>
       <p>{subtitle}</p>
     </header>
-  );
-}
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <strong>{value}</strong>
-      <span>{label}</span>
-    </div>
   );
 }
 export default App;
