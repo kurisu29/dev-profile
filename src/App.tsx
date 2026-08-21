@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import heroImage from "./assets/hero.png";
+import posScreenshot from "./assets/pos-screenshot.png";
+import inventoryDashboard from "./assets/inventory-dashboard.png";
 
 const services = [
   {
@@ -64,12 +66,14 @@ const projects = [
   {
     title: "Point of Sale System",
     type: "Business Application",
+    image: posScreenshot,
     text: "A practical POS application for managing menu items, categories, customer orders, payment methods, and daily sales workflows.",
     tags: ["React", "Laravel", "MySQL"],
   },
   {
     title: "Inventory Management Dashboard",
     type: "Admin Dashboard",
+    image: inventoryDashboard,
     text: "An inventory platform for tracking products, stock movement, suppliers, purchase orders, warehouses, and low-stock records.",
     tags: ["React", "Laravel", "MySQL"],
   },
@@ -111,6 +115,10 @@ const toolLogos = [
 
 function App() {
   const [active, setActive] = useState("About");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[number] | null
+  >(null);
   useEffect(() => {
     const sections = [
       "home",
@@ -145,13 +153,16 @@ function App() {
           <span>CH</span>
           <small>CHRIS</small>
         </a>
-        <div className="nav-links">
+        <div className={`nav-links ${menuOpen ? "is-open" : ""}`}>
           {["Home", "About", "Services", "Projects", "Skills", "Contact"].map(
             (item) => (
               <a
                 className={active === item ? "active" : ""}
                 href={`#${item.toLowerCase()}`}
-                onClick={() => setActive(item)}
+                onClick={() => {
+                  setActive(item);
+                  setMenuOpen(false);
+                }}
                 key={item}
               >
                 {item}
@@ -159,9 +170,22 @@ function App() {
             ),
           )}
         </div>
-        <a className="talk" href="#contact">
+        <a className="talk" href="#contact" onClick={() => setMenuOpen(false)}>
           Let&apos;s Talk <span>↗</span>
         </a>
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </nav>
       <section className="hero shell" id="home">
         <div className="hero-copy">
@@ -265,15 +289,14 @@ function App() {
         <div className="project-grid">
           {projects.map((project, index) => (
             <article className="project-card" key={project.title}>
-              <div className={`project-preview project-preview-${index + 1}`}>
-                <span>{project.type}</span>
-                <strong>{index === 0 ? "POS" : "DASHBOARD"}</strong>
-                <i>
-                  {index === 0
-                    ? "Orders · Menu · Payments"
-                    : "Stock · Products · Reports"}
-                </i>
-              </div>
+              <button
+                className={`project-preview project-preview-${index + 1}`}
+                type="button"
+                aria-label={`View ${project.title} screenshot`}
+                onClick={() => setSelectedProject(project)}
+              >
+                <img src={project.image} alt={`${project.title} interface`} />
+              </button>
               <div className="project-content">
                 <p className="project-type">{project.type}</p>
                 <h3>{project.title}</h3>
@@ -283,7 +306,7 @@ function App() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <a href="mailto:hello@chris.dev?subject=Project%20discussion">
+                <a href="#contact">
                   Discuss a similar project <b>↗</b>
                 </a>
               </div>
@@ -409,6 +432,29 @@ function App() {
           </a>
         </div>
       </section>
+      {selectedProject && (
+        <div
+          className="image-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedProject.title} screenshot preview`}
+          onClick={() => setSelectedProject(null)}
+        >
+          <button
+            className="lightbox-close"
+            type="button"
+            aria-label="Close screenshot preview"
+            onClick={() => setSelectedProject(null)}
+          >
+            ×
+          </button>
+          <img
+            src={selectedProject.image}
+            alt={`${selectedProject.title} full screenshot`}
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
       <footer className="shell">
         © 2026 CHRIS <span>Built with intention.</span>
       </footer>
