@@ -154,21 +154,26 @@ function App() {
           <small>CHRIS</small>
         </a>
         <div className={`nav-links ${menuOpen ? "is-open" : ""}`}>
-          {["Home", "About", "Services", "Projects", "Skills", "Contact"].map(
-            (item) => (
+          {[
+            ["Home", "Home"],
+            ["About", "About"],
+            ["What I Do", "Services"],
+            ["Projects", "Projects"],
+            ["Skills", "Skills"],
+            ["Contact", "Contact"],
+          ].map(([label, section]) => (
               <a
-                className={active === item ? "active" : ""}
-                href={`#${item.toLowerCase()}`}
+                className={active === section ? "active" : ""}
+                href={`#${section.toLowerCase()}`}
                 onClick={() => {
-                  setActive(item);
+                  setActive(section);
                   setMenuOpen(false);
                 }}
-                key={item}
+                key={section}
               >
-                {item}
+                {label}
               </a>
-            ),
-          )}
+            ))}
         </div>
         <a className="talk" href="#contact" onClick={() => setMenuOpen(false)}>
           Let&apos;s Talk <span>↗</span>
@@ -257,7 +262,7 @@ function App() {
       </section>
       <section className="section shell" id="services">
         <SectionHeading
-          title="Services"
+          title="What I Do"
           subtitle="Practical full-stack development support"
         />
         <div className="service-grid">

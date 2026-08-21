@@ -229,7 +229,7 @@
 .portrait-wrap {
   height: min(62vh, 540px) !important;
   align-self: center !important;
-  transform: translateY(58px);
+  transform: translateY(-2px);
 }
 .portrait-wrap img {
   height: 92% !important;
@@ -396,8 +396,8 @@
   min-height: 100vh !important;
 }
 .portrait-wrap {
-  height: 100vh !important;
-  align-self: start !important;
+  height: min(78vh, 680px) !important;
+  align-self: center !important;
 }
 .portrait-wrap img {
   height: 100% !important;
@@ -836,6 +836,7 @@ a {
 .hero-copy {
   padding: 30px 0;
   position: relative;
+  top: -60px;
   z-index: 1;
   animation: rise 0.8s both;
 }
@@ -1083,6 +1084,9 @@ a {
   border-radius: 5px;
   grid-row: span 2;
   margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .approach-grid strong {
   font-family: "Space Grotesk";
@@ -1261,6 +1265,7 @@ footer span {
   }
   .hero-copy {
     padding: 60px 0 0;
+    top: 0;
   }
   .portrait-wrap {
     height: 370px;
