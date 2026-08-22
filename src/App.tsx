@@ -68,14 +68,14 @@ const projects = [
     type: "Business Application",
     image: posScreenshot,
     text: "A practical POS application for managing menu items, categories, customer orders, payment methods, and daily sales workflows.",
-    tags: ["React", "Laravel", "MySQL"],
+    tags: ["React", "TypeScript", "Laravel", "MySQL"],
   },
   {
     title: "Inventory Management Dashboard",
     type: "Admin Dashboard",
     image: inventoryDashboard,
     text: "An inventory platform for tracking products, stock movement, suppliers, purchase orders, warehouses, and low-stock records.",
-    tags: ["React", "Laravel", "MySQL"],
+    tags: ["React", "TypeScript", "Laravel", "MySQL"],
   },
 ];
 
@@ -162,18 +162,18 @@ function App() {
             ["Skills", "Skills"],
             ["Contact", "Contact"],
           ].map(([label, section]) => (
-              <a
-                className={active === section ? "active" : ""}
-                href={`#${section.toLowerCase()}`}
-                onClick={() => {
-                  setActive(section);
-                  setMenuOpen(false);
-                }}
-                key={section}
-              >
-                {label}
-              </a>
-            ))}
+            <a
+              className={active === section ? "active" : ""}
+              href={`#${section.toLowerCase()}`}
+              onClick={() => {
+                setActive(section);
+                setMenuOpen(false);
+              }}
+              key={section}
+            >
+              {label}
+            </a>
+          ))}
         </div>
         <a className="talk" href="#contact" onClick={() => setMenuOpen(false)}>
           Let&apos;s Talk <span>↗</span>
@@ -198,7 +198,8 @@ function App() {
             I am <strong>CHRIS</strong>
           </p>
           <h1>
-            Junior Full-Stack
+            {/* Junior Full-Stack */}
+            Software
             <br />
             <em>Developer</em>
           </h1>
@@ -206,7 +207,7 @@ function App() {
             Building thoughtful digital experiences across the stack, from
             polished interfaces to reliable backend systems and APIs.
           </p>
-          <a className="button" href="/chris-cv.pdf" download>
+          <a className="button" href="/TorradoChrisCV.pdf" download="TorradoChrisCV.pdf">
             Download CV <span>↓</span>
           </a>
           <div className="socials"></div>
