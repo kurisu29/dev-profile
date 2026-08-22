@@ -1329,3 +1329,57 @@ footer span {
     gap: 16px;
   }
 }
+
+/* Keep the rhythm between every main page section consistent. */
+#home,
+#about,
+#services,
+#projects,
+#skills,
+#contact {
+  scroll-margin-top: 92px;
+}
+
+.section {
+  padding-top: clamp(76px, 8vw, 104px);
+  padding-bottom: 0;
+}
+
+.section-heading {
+  margin-bottom: clamp(28px, 3vw, 36px);
+}
+
+.about .section-heading {
+  margin-bottom: 18px;
+}
+
+.skills-grid {
+  margin-bottom: 0;
+}
+
+.contact-section {
+  padding-bottom: clamp(72px, 8vw, 104px);
+}
+
+@media (max-width: 800px) {
+  #home,
+  #about,
+  #services,
+  #projects,
+  #skills,
+  #contact {
+    scroll-margin-top: 74px;
+  }
+
+  .section {
+    padding-top: 64px;
+  }
+
+  .section-heading {
+    margin-bottom: 26px;
+  }
+
+  .contact-section {
+    padding-bottom: 64px;
+  }
+}

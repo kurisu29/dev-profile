@@ -8,7 +8,7 @@ const services = [
     number: "01",
     eyebrow: "WEBSITES & WEB APPLICATIONS",
     title: "Web Development",
-    text: "Production-ready websites and web applications built with clean interfaces, responsive layouts, and dependable backend features.",
+    text: "Responsive websites and web applications built with modern interfaces, reliable backend functionality, and maintainable code.",
     checklist: [
       "React interfaces",
       "Laravel APIs",
@@ -207,7 +207,11 @@ function App() {
             Building thoughtful digital experiences across the stack, from
             polished interfaces to reliable backend systems and APIs.
           </p>
-          <a className="button" href="/TorradoChrisCV.pdf" download="TorradoChrisCV.pdf">
+          <a
+            className="button"
+            href="/TorradoChrisCV.pdf"
+            download="TorradoChrisCV.pdf"
+          >
             Download CV <span>↓</span>
           </a>
           <div className="socials"></div>
@@ -226,8 +230,8 @@ function App() {
           subtitle="Building complete digital experiences across the stack"
         />
         <p className="about-text">
-          I&apos;m a junior full-stack developer passionate about creating
-          clean, intuitive, and reliable digital products. I combine thoughtful
+          I&apos;m a software developer passionate about creating clean,
+          intuitive, and reliable digital products. I combine thoughtful
           frontend design with practical backend development, APIs, and
           database-driven features to turn ideas into useful experiences.
         </p>
